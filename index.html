@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon - Glamour & Style</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Moul&family=Moulpali&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/000000/makeup.png">
+    <style>
+        :root {
+            --primary-color: #ff6b98;
+            --secondary-color: #ffb6c1;
+            --dark-color: #3a0a2a;
+            --light-color: #fff9fb;
+            --accent-color: #d43d6d;
+            --text-color: #333;
+            --text-light: #666;
+            --font-normal: 'Kantumruy Pro', sans-serif;
+            --font-header: 'Moul', serif;
+            --font-model: 'Moulpali', serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-normal);
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: var(--font-header);
+            color: var(--dark-color);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(58, 10, 42, 0.7), rgba(58, 10, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-header);
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 5px 15px rgba(212, 61, 109, 0.4);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 61, 109, 0.6);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-header);
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-model);
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #fef5f8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-family: var(--font-model);
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .member-image {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .member-info h3 {
+            font-family: var(--font-model);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(rgba(58, 10, 42, 0.9), rgba(58, 10, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .testimonials .section-title h2 {
+            color: white;
+        }
+
+        .testimonials .section-title h2::after {
+            background-color: var(--secondary-color);
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary-color);
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -15px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -15px;
+        }
+
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .client-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-name {
+            font-family: var(--font-model);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .client-role {
+            color: var(--secondary-color);
+            font-weight: 300;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(212, 61, 109, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #fef5f8;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-model);
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .info-text p {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-normal);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 152, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: var(--font-model);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-col p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .language-toggle input {
+            display: none;
+        }
+
+        .language-toggle label {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .language-toggle input:checked + label {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 999;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu ul li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .about-image::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .language-toggle {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Khmer Language Styles */
+        body.khmer {
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+
+        body.khmer .section-title h2,
+        body.khmer .logo-text,
+        body.khmer h1,
+        body.khmer h2,
+        body.khmer h3,
+        body.khmer h4,
+        body.khmer .member-info h3,
+        body.khmer .client-name,
+        body.khmer .footer-col h3 {
+            font-family: 'Moul', serif;
+        }
+
+        body.khmer .about-text h3,
+        body.khmer .service-content h3,
+        body.khmer .contact-info h3 {
+            font-family: 'Moulpali', serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <img src="https://img.icons8.com/fluency/48/000000/makeup.png" alt="Beauty Salon Logo">
+                    <span class="logo-text">Glamour<span>Style</span></span>
+                </a>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="nav-link" data-en="Home" data-kh="ទំព័រដើម">Home</a></li>
+                        <li><a href="#about" class="nav-link" data-en="About" data-kh="អំពីយើង">About</a></li>
+                        <li><a href="#services" class="nav-link" data-en="Services" data-kh="សេវាកម្ម">Services</a></li>
+                        <li><a href="#team" class="nav-link" data-en="Team" data-kh="ក្រុមរបស់យើង">Team</a></li>
+                        <li><a href="#gallery" class="nav-link" data-en="Gallery" data-kh="វិចិត្រសាល">Gallery</a></li>
+                        <li><a href="#contact" class="nav-link" data-en="Contact" data-kh="ទំនាក់ទំនង">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#home" class="nav-link" data-en="Home" data-kh="ទំព័រដើម">Home</a></li>
+            <li><a href="#about" class="nav-link" data-en="About" data-kh="អំពីយើង">About</a></li>
+            <li><a href="#services" class="nav-link" data-en="Services" data-kh="សេវាកម្ម">Services</a></li>
+            <li><a href="#team" class="nav-link" data-en="Team" data-kh="ក្រុមរបស់យើង">Team</a></li>
+            <li><a href="#gallery" class="nav-link" data-en="Gallery" data-kh="វិចិត្រសាល">Gallery</a></li>
+            <li><a href="#contact" class="nav-link" data-en="Contact" data-kh="ទំនាក់ទំនង">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-en="Glamour & Style" data-kh="សោភ័ណភាព និងរចនាប័ទ្ម">Glamour & Style</h1>
+            <p data-en="Experience the ultimate beauty transformation with our professional services" 
+               data-kh="សាកល្បងការផ្លាស់ប្តូរសោភ័ណភាពដ៏អស្ចារ្យជាមួយនឹងសេវាកម្មវិជ្ជាជីវៈរបស់យើង">
+                Experience the ultimate beauty transformation with our professional services
+            </p>
+            <a href="#contact" class="btn" data-en="Book Now" data-kh="កក់ឥឡូវនេះ">Book Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 data-en="About Us" data-kh="អំពីយើង">About Us</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3 data-en="Our Beauty Story" data-kh="រឿងសោភ័ណភាពរបស់យើង">Our Beauty Story</h3>
+                    <p data-en="Welcome to Glamour & Style, where beauty meets excellence. Our salon has been providing top-notch beauty services for over 10 years, helping our clients look and feel their best." 
+                       data-kh="សូមស្វាគមន៍មកកាន់ Glamour & Style កន្លែងដែលសោភ័ណភាពជួបភាពអស្ចារ្យ។ សាឡុងរបស់យើងបានផ្តល់សេវាកម្មសោភ័ណភាពដ៏ល្អឥតខ្ចោះអស់ជាង ១០ឆ្នាំមកហើយ ដែលជួយអោយអតិថិជនរបស់យើងមើលទៅស្រស់ស្អាត និងមានអារម្មណ៍ល្អបំផុត។">
+                        Welcome to Glamour & Style, where beauty meets excellence. Our salon has been providing top-notch beauty services for over 10 years, helping our clients look and feel their best.
+                    </p>
+                    <p data-en="Our team of certified professionals is dedicated to delivering personalized services tailored to your unique needs. We use only the highest quality products to ensure the best results for your skin and hair." 
+                       data-kh="ក្រុមអ្នកវិជ្ជាជីវៈដែលមានវិញ្ញាបនបត្ររបស់យើងបានឧទ្ទិសខ្លួនដើម្បីផ្តល់សេវាកម្មដែលប្តូរតាមបំណងបុគ្គលដែលត្រូវនឹងតម្រូវការពិសេសរបស់អ្នក។ យើងប្រើតែផលិតផលដែលមានគុណភាពខ្ពស់បំផុតដើម្បីធានាបាននូវលទ្ធផលដ៏ល្អបំផុតសម្រាប់ស្បែក និងសក់របស់អ្នក។">
+                        Our team of certified professionals is dedicated to delivering personalized services tailored to your unique needs. We use only the highest quality products to ensure the best results for your skin and hair.
+                    </p>
+                </div>
+                
+                <div class="about-image" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Beauty Salon Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 data-en="Our Services" data-kh="សេវាកម្មរបស់យើង">Our Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Hair Styling">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Hair Styling" data-kh="ការធ្វើសក់">Hair Styling</h3>
+                        <p data-en="Professional hair cutting, coloring, and styling to enhance your look." 
+                           data-kh="ការកាត់សក់ លាបពណ៌ និងធ្វើសក់ដោយអ្នកជំនាញដើម្បីបង្កើនភាពស្រស់ស្អាតរបស់អ្នក។">
+                            Professional hair cutting, coloring, and styling to enhance your look.
+                        </p>
+                        <p class="service-price" data-en="$50 - $150" data-kh="៥០$ - ១៥០$">$50 - $150</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Facial Treatments">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Facial Treatments" data-kh="ព្យាបាលមុខ">Facial Treatments</h3>
+                        <p data-en="Rejuvenating facials tailored to your skin type for a radiant complexion." 
+                           data-kh="ព្យាបាលមុខដែលផ្តល់អាយុវែងតាមប្រភេទស្បែករបស់អ្នកសម្រាប់ស្បែកមុខដ៏ភ្លឺស្វាង។">
+                            Rejuvenating facials tailored to your skin type for a radiant complexion.
+                        </p>
+                        <p class="service-price" data-en="$80 - $200" data-kh="៨០$ - ២០០$">$80 - $200</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Manicure & Pedicure">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Manicure & Pedicure" data-kh="ធ្វើដៃនិងជើង">Manicure & Pedicure</h3>
+                        <p data-en="Pamper your hands and feet with our luxurious nail care services." 
+                           data-kh="ថែរក្សាដៃនិងជើងរបស់អ្នកជាមួយនឹងសេវាកម្មថែរក្សាក្រចកដ៏អស្ចារ្យរបស់យើង។">
+                            Pamper your hands and feet with our luxurious nail care services.
+                        </p>
+                        <p class="service-price" data-en="$40 - $120" data-kh="៤០$ - ១២០$">$40 - $120</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Makeup Artistry">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Makeup Artistry" data-kh="គ្រឿងសំអាង">Makeup Artistry</h3>
+                        <p data-en="Professional makeup application for any occasion, from natural to glam looks." 
+                           data-kh="ការលាបគ្រឿងសំអាងដោយអ្នកជំនាញសម្រាប់គ្រប់ព្រឹត្តិការណ៍ ពីសម្បុរធម្មជាតិដល់សម្បុរល្អឥតខ្ចោះ។">
+                            Professional makeup application for any occasion, from natural to glam looks.
+                        </p>
+                        <p class="service-price" data-en="$60 - $250" data-kh="៦០$ - ២៥០$">$60 - $250</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Waxing">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Waxing" data-kh="អ៊ុតសំយាប">Waxing</h3>
+                        <p data-en="Smooth, hair-free skin with our professional waxing services for all body areas." 
+                           data-kh="ស្បែករលីងដោយគ្មានសំយាបជាមួយនឹងសេវាកម្មអ៊ុតសំយាបដោយអ្នកជំនាញសម្រាប់គ្រប់ផ្នែកនៃរាងកាយ។">
+                            Smooth, hair-free skin with our professional waxing services for all body areas.
+                        </p>
+                        <p class="service-price" data-en="$30 - $100" data-kh="៣០$ - ១០០$">$30 - $100</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Massage Therapy">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Massage Therapy" data-kh="ព្យាបាលដោយការសំពាធ">Massage Therapy</h3>
+                        <p data-en="Relax and rejuvenate with our therapeutic massage treatments for body and mind." 
+                           data-kh="ធូរស្បើយនិងមានអាយុវែងជាមួយនឹងការព្យាបាលដោយការសំពាធសម្រាប់រាងកាយនិងចិត្តរបស់យើង។">
+                            Relax and rejuvenate with our therapeutic massage treatments for body and mind.
+                        </p>
+                        <p class="service-price" data-en="$70 - $180" data-kh="៧០$ - ១៨០$">$70 - $180</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 data-en="Our Experts" data-kh="អ្នកជំនាញរបស់យើង">Our Experts</h2>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1187&q=80" alt="Sophia Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3 data-en="Sophia Johnson" data-kh="សូហ្វាយ៉ា ចនសុន">Sophia Johnson</h3>
+                        <p data-en="Master Stylist" data-kh="អ្នកធ្វើសក់ជំនាញ">Master Stylist</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Emma Rodriguez">
+                    </div>
+                    <div class="member-info">
+                        <h3 data-en="Emma Rodriguez" data-kh="អេម៉ា រ៉ូឌ្រីហ្គេស">Emma Rodriguez</h3>
+                        <p data-en="Beauty Therapist" data-kh="អ្នកព្យាបាលសោភ័ណភាព">Beauty Therapist</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Mia Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3 data-en="Mia Chen" data-kh="ម៉ាយ៉ា ឆេន">Mia Chen</h3>
+                        <p data-en="Makeup Artist" data-kh="អ្នកគ្រឿងសំអាង">Makeup Artist</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1161&q=80" alt="Olivia Smith">
+                    </div>
+                    <div class="member-info">
+                        <h3 data-en="Olivia Smith" data-kh="អូលីវីយ៉ា ស្មីត">Olivia Smith</h3>
+                        <p data-en="Nail Specialist" data-kh="អ្នកជំនាញថែរក្សាក្រចក">Nail Specialist</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 data-en="Client Reviews" data-kh="មតិអតិថិជន">Client Reviews</h2>
+            </div>
+            
+            <div class="testimonials-slider" data-aos="fade-up">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p data-en="I've been coming to Glamour & Style for years and they never disappoint. The staff is professional and the results are always amazing!" 
+                           data-kh="ខ្ញុំបានមក Glamour & Style អស់រយៈពេលជាច្រើនឆ្នាំហើយ ពួកគេមិនដែលធ្វើអោយខ្ញុំខកចិត្តឡើយ។ បុគ្គលិកមានវិជ្ជាជីវៈ ហើយលទ្ធផលតែងតែអស្ចារ្យ!">
+                            I've been coming to Glamour & Style for years and they never disappoint. The staff is professional and the results are always amazing!
+                        </p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Miller">
+                        </div>
+                        <h4 class="client-name" data-en="Sarah Miller" data-kh="សារ៉ា មីលឡឺ">Sarah Miller</h4>
+                        <p class="client-role" data-en="Regular Client" data-kh="អតិថិជនប្រចាំ">Regular Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 data-en="Our Gallery" data-kh="វិចិត្រសាលរបស់យើង">Our Gallery</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1599351430140-c70f0250bd70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Salon Interior">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Makeup Service">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Hair Styling">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Nail Service">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Waxing Service">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Massage Service">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Facial Service">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="800">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Hair Color">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 data-en="Contact Us" data-kh="ទំនាក់ទំនងជាមួយយើង">Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3 data-en="Get In Touch" data-kh="ទាក់ទងជាមួយយើង">Get In Touch</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4 data-en="Location" data-kh="ទីតាំង">Location</h4>
+                            <p data-en="123 Beauty Street, Phnom Penh, Cambodia" 
+                               data-kh="១២៣ ផ្លូវសោភ័ណភាព ភ្នំពេញ កម្ពុជា">
+                                123 Beauty Street, Phnom Penh, Cambodia
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4 data-en="Phone" data-kh="ទូរស័ព្ទ">Phone</h4>
+                            <p>+855 12 345 678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4 data-en="Email" data-kh="អ៊ីមែល">Email</h4>
+                            <p>info@glamourstyle.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4 data-en="Opening Hours" data-kh="ម៉ោងបើកប្រាស់">Opening Hours</h4>
+                            <p data-en="Mon-Sat: 9:00 AM - 8:00 PM" 
+                               data-kh="ច័ន្ទ-សៅរ៍៖ ៩:០០ព្រឹក - ៨:០០ល្ងាច">
+                                Mon-Sat: 9:00 AM - 8:00 PM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name" data-en="Your Name" data-kh="ឈ្មោះរបស់អ្នក">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-en="Your Email" data-kh="អ៊ីមែលរបស់អ្នក">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone Number" data-kh="លេខទូរស័ព្ទ">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" data-en="Service" data-kh="សេវាកម្ម">Service</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" data-en="Select a service" data-kh="ជ្រើសរើសសេវាកម្ម">Select a service</option>
+                                <option value="hair" data-en="Hair Styling" data-kh="ការធ្វើសក់">Hair Styling</option>
+                                <option value="facial" data-en="Facial Treatments" data-kh="ព្យាបាលមុខ">Facial Treatments</option>
+                                <option value="nails" data-en="Manicure & Pedicure" data-kh="ធ្វើដៃនិងជើង">Manicure & Pedicure</option>
+                                <option value="makeup" data-en="Makeup Artistry" data-kh="គ្រឿងសំអាង">Makeup Artistry</option>
+                                <option value="waxing" data-en="Waxing" data-kh="អ៊ុតសំយាប">Waxing</option>
+                                <option value="massage" data-en="Massage Therapy" data-kh="ព្យាបាលដោយការសំពាធ">Massage Therapy</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date" data-en="Appointment Date" data-kh="កាលបរិច្ឆេទណាតាំង">Appointment Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-en="Additional Message" data-kh="សារបន្ថែម">Additional Message</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" data-en="Book Appointment" data-kh="កក់ណាតាំង">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-en="Glamour & Style" data-kh="Glamour & Style">Glamour & Style</h3>
+                    <p data-en="Your premier destination for beauty and wellness services in Phnom Penh." 
+                       data-kh="គោលដៅដ៏ល្អបំផុតសម្រាប់សេវាកម្មសោភ័ណភាពនិងសុខភាពនៅភ្នំពេញ។">
+                        Your premier destination for beauty and wellness services in Phnom Penh.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 data-en="Quick Links" data-kh="តំណភ្ជាប់រហ័ស">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="nav-link" data-en="Home" data-kh="ទំព័រដើម">Home</a></li>
+                        <li><a href="#about" class="nav-link" data-en="About" data-kh="អំពីយើង">About</a></li>
+                        <li><a href="#services" class="nav-link" data-en="Services" data-kh="សេវាកម្ម">Services</a></li>
+                        <li><a href="#team" class="nav-link" data-en="Team" data-kh="ក្រុមរបស់យើង">Team</a></li>
+                        <li><a href="#contact" class="nav-link" data-en="Contact" data-kh="ទំនាក់ទំនង">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 data-en="Services" data-kh="សេវាកម្ម">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="Hair Styling" data-kh="ការធ្វើសក់">Hair Styling</a></li>
+                        <li><a href="#" data-en="Facial Treatments" data-kh="ព្យាបាលមុខ">Facial Treatments</a></li>
+                        <li><a href="#" data-en="Nail Care" data-kh="ថែរក្សាក្រចក">Nail Care</a></li>
+                        <li><a href="#" data-en="Makeup" data-kh="គ្រឿងសំអាង">Makeup</a></li>
+                        <li><a href="#" data-en="Massage" data-kh="ការសំពាធ">Massage</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 data-en="Newsletter" data-kh="ព័ត៌មាន">Newsletter</h3>
+                    <p data-en="Subscribe to our newsletter for the latest updates and offers." 
+                       data-kh="ជាវព័ត៌មានរបស់យើងសម្រាប់ព័ត៌មានថ្មីៗ និងការផ្តល់ជូន។">
+                        Subscribe to our newsletter for the latest updates and offers.
+                    </p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" class="form-control" required>
+                            <button type="submit" class="btn" data-en="Subscribe" data-kh="ជាវ">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="credit-en">2025 - All rights reserved. Provide by Mr. Phekdey PHORN</p>
+                <p class="credit-kh" style="display: none;">2025 - រក្សារ​សិទ្ធិ​គ្រប់​យ៉ាង ដោយលោក ផន ភក្ដី។</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <input type="radio" id="english" name="language" checked>
+        <label for="english" onclick="changeLanguage('en')">EN</label>
+        
+        <input type="radio" id="khmer" name="language">
+        <label for="khmer" onclick="changeLanguage('kh')">ខ្មែរ</label>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile menu toggle
+        $('.mobile-menu-btn').click(function() {
+            $('.mobile-menu').addClass('active');
+        });
+
+        $('.mobile-menu-close').click(function() {
+            $('.mobile-menu').removeClass('active');
+        });
+
+        // Smooth scrolling for navigation links
+        $('a[href*="#"]').on('click', function(e) {
+            e.preventDefault();
+            
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top - 80,
+                },
+                500,
+                'linear'
+            );
+            
+            // Close mobile menu if open
+            $('.mobile-menu').removeClass('active');
+        });
+
+        // Header scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#header').addClass('header-scrolled');
+            } else {
+                $('#header').removeClass('header-scrolled');
+            }
+            
+            // Show/hide back to top button
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+
+        // Back to top button
+        $('.back-to-top').click(function() {
+            $('html, body').animate({scrollTop: 0}, '300');
+        });
+
+        // Language toggle function
+        function changeLanguage(lang) {
+            if (lang === 'kh') {
+                $('body').addClass('khmer');
+                $('[data-kh]').each(function() {
+                    if ($(this).is('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
+                        $(this).attr('placeholder', $(this).data('kh'));
+                    } else if ($(this).is('option')) {
+                        if ($(this).val() === '') {
+                            $(this).text($(this).data('kh'));
+                        }
+                    } else {
+                        $(this).text($(this).data('kh'));
+                    }
+                });
+                $('.credit-en').hide();
+                $('.credit-kh').show();
+            } else {
+                $('body').removeClass('khmer');
+                $('[data-en]').each(function() {
+                    if ($(this).is('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
+                        $(this).attr('placeholder', $(this).data('en'));
+                    } else if ($(this).is('option')) {
+                        if ($(this).val() === '') {
+                            $(this).text($(this).data('en'));
+                        }
+                    } else {
+                        $(this).text($(this).data('en'));
+                    }
+                });
+                $('.credit-kh').hide();
+                $('.credit-en').show();
+            }
+        }
+
+        // Form submission
+        $('#bookingForm').submit(function(e) {
+            e.preventDefault();
+            alert($('body').hasClass('khmer') ? 
+                  'សំណើរបស់អ្នកត្រូវបានដាក់ជូនដោយជោគជ័យ! យើងនឹងទាក់ទងអ្នកឆាប់ៗនេះ។' : 
+                  'Your request has been submitted successfully! We will contact you soon.');
+            this.reset();
+        });
+
+        // Newsletter form submission
+        $('.newsletter-form').submit(function(e) {
+            e.preventDefault();
+            alert($('body').hasClass('khmer') ? 
+                  'អរគុណសម្រាប់ការជាវរបស់អ្នក!' : 
+                  'Thank you for subscribing!');
+            this.reset();
+        });
+
+        // Initialize header class on load
+        $(window).trigger('scroll');
+    </script>
+</body>
+</html>
